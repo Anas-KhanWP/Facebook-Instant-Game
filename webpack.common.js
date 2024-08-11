@@ -32,6 +32,19 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/',
+              publicPath: 'assets/',
+            }
+          }
+        ]
       }
     ]
   },
@@ -51,7 +64,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'assets/**/*'),
+          from: path.resolve(__dirname, 'assets'),
           to: path.resolve(__dirname, 'build')
         }
       ],

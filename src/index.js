@@ -1,5 +1,7 @@
 
 import Phaser from "phaser";
+// import skyImage from '../assets/sky.png';
+import PlayScene from "./scenes/Play";
 
 const config = {
   type: Phaser.AUTO,
@@ -8,21 +10,11 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 200 }
+      gravity: { y: 0 },
+      debug: true
     }
   },
-  scene: {
-    preload: preload,
-    create: create
-  }
+  scene: [PlayScene]
 };
 
 new Phaser.Game(config);
-
-function preload () {
-  this.load.image('sky', 'assets/sky.png');
-}
-
-function create () {
-  this.add.image(400, 300, 'sky');
-}
