@@ -1,18 +1,9 @@
 import Phaser from "phaser";
-import skyImage from "../../assets/sky.png"
-import bombImage from "../../assets/bomb.png"
-import playerImage from "../../assets/player.png"
 
 class PlayScene extends Phaser.Scene {
 
     constructor() {
         super("PlayScene");
-    }
-
-    preload() {
-        this.load.image('sky', skyImage);
-        this.load.image('bomb', bombImage);
-        this.load.image('player', playerImage);
     }
 
     create() {

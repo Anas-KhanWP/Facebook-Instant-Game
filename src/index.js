@@ -2,6 +2,10 @@
 import Phaser from "phaser";
 // import skyImage from '../assets/sky.png';
 import PlayScene from "./scenes/Play";
+import PreloadScene from "./scenes/Preload";
+
+const WIDTH = document.body.offsetWidth;
+const HEIGHT = document.body.offsetHeight;
 
 const config = {
   type: Phaser.AUTO,
@@ -10,11 +14,18 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 0 },
-      debug: true
+      gravity: { y: 0 }
+      // debug: true
     }
   },
-  scene: [PlayScene]
+  scene: [PreloadScene, PlayScene]
 };
 
-new Phaser.Game(config);
+
+if (process.env.FB_ENV || process.env.NODE_ENV === 'production') {
+  FBInstant.initializeAsync().then(() => {
+    new Phaser.Game(config);
+  })
+} else {
+  new Phaser.Game(config);
+}

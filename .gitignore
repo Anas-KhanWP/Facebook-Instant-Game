@@ -81,3 +81,6 @@ temp/
 
 dist/
 build/
+
+# Zip FIles
+*.zip

@@ -66,6 +66,10 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'assets'),
           to: path.resolve(__dirname, 'build')
+        },
+        {
+          from: path.resolve(__dirname, 'fbapp-config.json'),
+          to: path.resolve(__dirname, 'build')
         }
       ],
     })
